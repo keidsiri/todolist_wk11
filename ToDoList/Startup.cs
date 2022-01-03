@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using AnimalShelter.Models;
+using ToDoList.Models;
 
-namespace AnimalShelter
+namespace ToDoList
 {
   public class Startup
   {
@@ -14,7 +14,7 @@ namespace AnimalShelter
     {
       var builder = new ConfigurationBuilder()
           .SetBasePath(env.ContentRootPath)
-              .AddJsonFile("appsettings.json");
+          .AddJsonFile("appsettings.json");
       Configuration = builder.Build();
     }
 
@@ -40,7 +40,7 @@ namespace AnimalShelter
       });
 
       app.UseStaticFiles();
-
+      
       app.Run(async (context) =>
       {
         await context.Response.WriteAsync("Hello World!");
